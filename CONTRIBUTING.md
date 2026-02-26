@@ -1,6 +1,6 @@
-# 🤝 Contributing to NovaBuy
+# 🤝 Contributing to Movie Booking System
 
-Thank you for your interest in contributing! This project is a **debugging challenge** — your goal is to find and fix the 20 intentional bugs hidden in the codebase. Here's how to get started.
+Thank you for your interest in contributing! This project is a **debugging challenge** — your goal is to find and fix the 5 intentional bugs hidden in the movie booking system codebase. Here's how to get started.
 
 ---
 
@@ -13,8 +13,8 @@ Click the **Fork** button in the top-right corner of the GitHub repo page. This 
 ### 2. Clone Your Fork
 
 ```bash
-git clone https://github.com/<your-username>/web-dev-challenge-1.git
-cd web-dev-challenge-1
+git clone https://github.com/<your-username>/webdev-full-03-movie-booking-system.git
+cd webdev-full-03-movie-booking-system
 ```
 
 ### 3. Add the Upstream Remote
@@ -22,7 +22,7 @@ cd web-dev-challenge-1
 Keep your fork synced with the original repo:
 
 ```bash
-git remote add upstream https://github.com/GDG-Open-Challenge/web-dev-challenge-1.git
+git remote add upstream https://github.com/GDG-Open-Challenge/webdev-full-03-movie-booking-system.git
 git fetch upstream
 ```
 
@@ -39,9 +39,11 @@ fix/issue-<number>-<short-description>
 **Examples:**
 
 ```bash
-git checkout -b fix/issue-1-cart-total-calculation
-git checkout -b fix/issue-4-search-case-sensitivity
-git checkout -b fix/issue-16-unicode-hidden-character
+git checkout -b fix/issue-1-seat-selection-ui-grid
+git checkout -b fix/issue-2-mark-seat-as-booked
+git checkout -b fix/issue-3-price-calculation-ticket-count
+git checkout -b fix/issue-4-filter-past-movies
+git checkout -b fix/issue-5-checkout-api-integration
 ```
 
 > [!IMPORTANT]
@@ -64,14 +66,22 @@ git checkout -b fix/issue-16-unicode-hidden-character
 
 ### Testing Locally
 
+**1. Start the backend:**
 ```bash
-# Option 1: Open directly
-open index.html
-
-# Option 2: Use a local server (recommended)
-python3 -m http.server 8080
-# Then visit http://localhost:8080
+cd backend
+npm install
+node seed.js
+npm start
 ```
+
+**2. Start the frontend (in a new terminal):**
+```bash
+cd frontend
+npm install
+npm start
+```
+
+The application will open at http://localhost:3000
 
 ---
 
@@ -86,13 +96,15 @@ fix(scope): brief description of the fix (#issue-number)
 **Examples:**
 
 ```bash
-git commit -m "fix(cart): resolve total string concatenation by using numeric accumulator (#1)"
-git commit -m "fix(search): add case-insensitive comparison for product filtering (#4)"
-git commit -m "fix(css): replace fixed pixel widths with responsive units in product grid (#3)"
+git commit -m "fix(css): correct seat grid layout in SeatSelection component (#1)"
+git commit -m "fix(database): mark seat as booked after successful booking (#2)"
+git commit -m "fix(pricing): multiply ticket price by seat count (#3)"
+git commit -m "fix(api): filter movies by current date in GET endpoint (#4)"
+git commit -m "fix(frontend): integrate checkout API call to save bookings (#5)"
 ```
 
 > [!NOTE]
-> Scope should be the affected area: `cart`, `search`, `modal`, `css`, `data`, `a11y`, etc.
+> Scope should be the affected area: `css`, `database`, `api`, `pricing`, `frontend`, etc.
 
 ---
 
@@ -108,7 +120,7 @@ git push origin fix/issue-<number>-<description>
 
 - Go to your fork on GitHub
 - Click **"Compare & pull request"**
-- Set the base repository to `GDG-Open-Challenge/web-dev-challenge-1` and base branch to `main`
+- Set the base repository to `GDG-Open-Challenge/webdev-full-03-movie-booking-system` and base branch to `main`
 - **You MUST follow the PR format below** — PRs that do not follow this format will be requested to revise
 
 ---
@@ -236,10 +248,10 @@ Your pull request will be evaluated on:
 | Rule | Details |
 |------|---------|
 | **One bug per PR** | Don't bundle multiple fixes in a single pull request |
-| **No frameworks** | Keep it HTML, CSS, and vanilla JS only — no React, jQuery, Tailwind, etc. |
+| **No additional frameworks** | Use only existing tech stack: Node.js/Express, React, MongoDB |
 | **Don't reformat code** | Fix only the bug; don't restructure, rename, or beautify the surrounding code |
-| **Don't add dependencies** | No npm packages, CDN libraries, or external tools |
-| **Test before submitting** | Verify your fix works in at least 2 browsers |
+| **Don't add dependencies** | No new npm packages or external tools unless necessary |
+| **Test before submitting** | Verify your fix works end-to-end with both frontend and backend |
 | **Follow the PR template** | Every section must be filled out completely |
 
 ---
