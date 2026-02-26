@@ -1,0 +1,128 @@
+.screen {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 30px 0;
+  padding: 15px;
+  background: linear-gradient(90deg, transparent, #667eea, transparent);
+  color: white;
+  border-radius: 50%;
+}
+
+.seats-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: start;
+  gap: 2px;
+  margin: 30px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+}
+
+.seats-row {
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  align-items: center;
+  gap: 2px;
+}
+
+.row-label {
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.seat {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75em;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.seat.available {
+  background-color: #90EE90;
+  color: #333;
+  border-color: #76C776;
+}
+
+.seat.available:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.seat.booked {
+  background-color: #FF6B6B;
+  color: white;
+  border-color: #CC5555;
+  cursor: not-allowed;
+}
+
+.seat.selected {
+  background-color: #667eea;
+  color: white;
+  border-color: #5a67d8;
+  transform: scale(1.1);
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-item .seat {
+  width: 25px;
+  height: 25px;
+  margin: 0;
+}
+
+.seat-selection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.seat-selection-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.selected-seats {
+  flex: 1;
+}
+
+.selected-seats p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+.total {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #667eea;
+}
